@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block body %}
+	<h1>{{folder}}</h1>
+    <video controls width="720" id ="video1"></video><br>
+    <script>
+    	var videoSource = new Array();
+    	var iterator = 0;
+    	var i = 0;
+    	var myVideo = document.getElementById("video1");
+    	var clicked = false;
+    </script>
+    <input onclick="playAll()" value="Play All" type="button" id="button1"></input>
+    <ul>
+    {% for video in videos %}
+        <li><a onclick="changeVideo('/static/videos/{{folder}}/{{video}}')" href="javascript:void(0);">{{video}}</a>
+        <script>
+        	videoSource[iterator]='/static/videos/{{folder}}/{{video}}';
+        	iterator++
+        </script></li>
+    {% endfor %}
+    </ul>
+    <script type="text/javascript">
+        function changeVideo(video){	
+		    myVideo.src = video;
+			myVideo.load();
+			myVideo.play();
+        }
+		function playAll(){
+			if(!clicked){
+				myVideo.addEventListener('ended',myHandler,false);
+				myVideo.setAttribute("src",videoSource[0]);
+				myVideo.play();
+				clicked = true;
+				document.getElementById("button1").value="Stop";
+			}else{
+				myVideo.removeEventListener('ended',myHandler,false);
+				clicked = false;
+				document.getElementById("button1").value="Play All";
+			}			
+		}
+		function myHandler() {
+			var videoCount = videoSource.length;
+			i++;
+			if(i == (videoCount)){
+				i = 0;
+				videoPlay(i);
+			}
+			else{
+				videoPlay(i);
+			}
+       }
+       function videoPlay(videoNum){
+			myVideo.setAttribute("src",videoSource[videoNum]);
+			myVideo.load();
+			myVideo.play();
+		}
+    </script>
+{% endblock %}

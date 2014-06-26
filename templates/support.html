@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>The Opportunity</h1>
+    <p1>
+    	There is a need for local sponsors to enable these students and mentors to not only build the robot, but to travel as a complete team to the competitions, which are 4 day, 3 night trips.  Expenses include robot components, event registration fees, travel expenses,etc.
+    </p1><br />
+    <p2>
+    	We greatly appreciate your consideration and support for our organization and hope that you will join us in fulfilling our aspirations of continuing responsible, and personable students and citizens.
+    </p2><br /><br />
+    <h2>Benefits of Being a Sponsor</h2>
+    <ul>
+    	<li><a>Aiding in the development of a technologically literate workforce</a></li>
+    	<li><a>Offering opportunities for the growth of team-building skills</a></li>
+    	<li><a>Inspiring future programmers, engineers, and employees</a></li>
+    	<li><a>Providing a fantastic source of pride in the community</a></li>
+    	<li><a>Adding yet another positive facet to your corporate reputation</a></li>
+    </ul>
+    <br />
+    <h2>How to Sponsor</h2>
+    <a href="http://www.gofundme.com/PARTS-3492">Donations Page</a><br /><br />
+    <p3>
+    	Or contact Tina Kirk at (304) 552-4225 or Winfield High School at (304) 586-3279.
+    Please made checks payable to Winfield High School. On the memo line, indicate that your donation is for 'Robotics'. All donations will be acknowledged in writing including an officil receipt for funds.
+    </p3><br /><br/>
+    <p4>
+    To help make the decision easier, please understand that 100% of all donations will be utilized efficiently and effectively to support the Robotics Team. Also note that, as a 501(c)3 organization, the above 100% figure is accurate to the last penny.<br /> Thank you for your support! 
+    </p4>
+    <h2>Sponsorship Levels & Recognition</h2>
+    <p><b>Platinum</b></p>
+    <p>$5,000 and Up</p>
+    <p>Identification as Sponsor in Team Name</p>
+    <p>As Well as All Lower Tiers Recognition</p><br />
+    <p><b>Gold</b></p>
+    <p>$2,500-$4,999</p>
+    <p>Name on Robot</p>
+    <p>As Well as All Lower Tiers Recognition</p><br />
+    <p><b>Silver</b></p>
+    <p>$1,000-$2,499</p>
+    <p>Listing on Team T-Shirts</p>
+    <p>As Well as the Lower Tiers Recognition</p><br />
+    <p><b>Bronze</b></p>
+    <p>Up to $999</p>
+    <p>Listed in all Literature, Logo on Team Website</p><br />
+    
+    <h2>Donors</h2>
+    {% for picture in pictures %}  
+    	<img src='/static/sponsors/{{picture}}'/>  
+	{% endfor %}  
+	
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   	<title>PARTs</title>
+   	<link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+   	<link rel="stylesheet" type="text/css" href="/static/style.css" />
+   	<script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
+    </head>
+    <body>
+        <img src="http://i.imgur.com/CMIqwc7.jpg" id="Banner">
+	<div id="navbg">
+	</div>
+        <div id="navcontainer">
+            <ul id="navlist">
+                {% block nav %}{% endblock %}
+                <li><a href="{{url_for('main')}}">about PARTs</a></li>
+                <li><a href="{{url_for('contact')}}">contact us</a></li>
+                <li><a href="{{url_for('add_entry')}}">team updates</a></li>
+                <li><a href="{{url_for('pictures')}}">pictures</a></li> 
+                <li><a href="{{url_for('videos')}}">videos</a></li> 
+                <li><a href="{{url_for('support')}}">donate</a></li>  
+                {% if 'username' in session %}
+                <li><a href="{{url_for('login')}}">logout</a></li> 
+                <li><a href="{{url_for('remote')}}">remote control</a></li> 
+                {% else %}
+                <li><a href="{{url_for('login')}}">login</a></li> 
+                {% endif %}
+            </ul>
+        </div>
+         <div id="content">
+            {% block body %}{% endblock %}
+        </div>
+        <div id="flashed">
+        {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+        {% endwith %}
+        </div>
+    </body>
+</html>

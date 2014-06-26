@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+    {% if 'username' in session %}
+    <form action="{{ url_for('add_entry') }}" method=post>
+      <dl>
+        <dt>Title:
+        <dd><input type=text size=30 name=title>
+        <dt>Text:
+        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+    {% endif %}
+  <h1>Team Updates</h1>
+  <ul class=entries>
+  {% for entry in entries %}
+    <li><p><b>{{ entry.title }}</b></p>{{ entry.time }}<br />{{ entry.text|safe }}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
+

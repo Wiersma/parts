@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block body %}
+	<h1>{{folder}}</h1>
+	{% for image in images %}  
+    <img src='/static/pictures/{{folder}}/{{image}}'/>  
+	{% endfor %}  
+{% endblock %}

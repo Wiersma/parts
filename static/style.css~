@@ -1,0 +1,45 @@
+body{
+	font-family: 'Helvetica', serif;
+    	color:#3E4349;
+}
+
+#Banner {
+	position: relative;
+	right: 20px;
+	bottom: 8px;
+}
+
+#navcontainer ul li {
+	display: inline;
+	margin-right: 50px;
+	font-family: helvetica;
+	margin: 20px;
+	position: relative;
+	bottom: 55px;
+}
+
+#navcontainer ul li a {
+	text-decoration: none;
+	color: White;
+}
+
+#navbg {
+	width: 125%;
+	height: 35px;
+	background-color: Black;
+	position: relative;
+	z-index:-1;
+	top: -13px;
+	left: -8px;
+	border-top: 3px solid #FF6600;
+}	
+div #flashed {
+    	margin-left: 10em;
+    	font-size: large;
+}
+
+#content {
+    	margin-left: 10em;
+}
+
+

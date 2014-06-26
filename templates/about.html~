@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+   	<ul>        
+   		<li><a href="{{url_for('members', directory= 'members')}}">Members Section</a></li>
+   		<li><a href="{{url_for('members', directory= 'mentors')}}">Mentor Section</a></li>
+   		<li><a href="{{url_for('members', directory= 'illumni')}}">Illumni</a></li>
+   	</ul>
+    <h1>Welcome! We are team 3492 PARTs</h1>
+    <p>
+    	The Putnam Area Robotics Team (P.A.R.T.s), formerly RoboGens, is a Putnam County, WV based robotics team open to High School Students from Buffalo, Hurricane, Poca, and Winfield. The team is headquartered at the Putnam Career and Technical Center in Eleanor, WV and is a member of the FIRST (For Inspiration and Recognition of Science and Technology) Organization. 
+    </p><br />
+    <h1>About FIRST</h1>
+    <p>
+    	FIRST(For Inspiration and Recognition of Science and Technology) is a partnership of teachers, administrators, parents, corporate menors, and community volunteers whose common goal is to create a challenging, hands-on environment that helps students grow into future engineers, scientists, inventors and buisness people.
+    </p>
+    <a href="http://www.usfirst.org/">Learn more about FIRST</a><br /><br />
+    <h1>The Competition</h1>
+    <p>
+    	The concept of the competition s for students to raise funds, design a website, build and program a robot to perform prescribed tasks, all while developing teamwork teamwork skills. Students have the opportunity to work with volunteer mentors from area businesses to learn mechanical, electrical and programming skills.
+    </p>
+{% endblock %}

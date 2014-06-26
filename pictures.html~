@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block body %}
+	<h2>Pictures</h2>
+	Team Pictures
+	<form action="{{url_for('pictures')}}" method="get">
+{% endblock %}

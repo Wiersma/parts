@@ -1,0 +1,313 @@
+			<ul>
+				<form action="{{url_for('pictures')}}" method="post">
+	    			{% for picture in pictures %}
+						<img id = "{{picture}}"></img>	
+						<script type="text/javascript">
+								var img = '/static/pictures/' + '{{picture}}';
+								document.getElementById('{{picture}}').src = img;
+						</script>		
+	    			{% endfor %}
+        		</form>
+        	</ul>
+        	
+        	
+        	
+        	imageAdd('{{folder}}')
+        	
+        	
+        	
+        	
+       	<script>
+			function imageAdd(folder){
+				var container = 'static/pictures/' + folder;
+				for picture in container:
+					var img = document.createElement("img");
+					img.src = container + picture;
+					source = document.getElementById('image');
+					source.appendChild(img);
+			}
+    	</script>
+    	
+    	
+    	
+    		<?php
+	  function runMyFunction() {
+		foreach(glob("/path/to/images/{*.gif,*.jpg,*.png,*.jpeg,*.bmp}", GLOB_BRACE) as $image){
+        	echo '<img src="'.$image.'">';
+    	} 
+	  }
+
+	  if (isset($_GET['hello'])) {
+		runMyFunction();
+	  }
+	?>
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	{% extends "base.html" %}
+{% block body %}
+	<h2>Pictures</h2>
+    <ul>
+        <script>
+			function imageAdd(folder){
+				var container = 'static/pictures/' + folder;
+				for picture in container:
+					var img = document.createElement("img");
+					img.src = container + picture;
+					source = document.getElementById('image');
+					source.appendChild(img);
+			}
+    	</script>
+  		<script type="text/javascript">
+		function addImage(folder) {
+			var container = '/home/tanner/projects/flask/parts/static/pictures/' + folder + '/';
+			alert(container);
+			for ('*.jpg' in container){
+				var img = document.createElement("img");
+				img.src = container + picture;
+				source = document.getElementById('image');
+				source.appendChild(img);
+			}
+		}
+		</script>
+    {% for folder in folders %}
+        <li><a href="javascript:addImage('{{folder}}');">{{folder}}</a></li>
+    {% endfor %}
+    </ul>
+    <div id = "image"></div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "base.html" %}
+{% block body %}
+	<h2>Pictures</h2>
+    <ul>
+	<script>
+	function imageAdd(folder){
+		var container = '/static/pictures/' + folder + '/';
+		alert(container);
+		$.ajax({
+			type:'POST',
+			url:'pictures.html',
+			data:'folder=' + container,
+			success: function(){
+				alert('success');
+				$folder = $_POST['folder'];
+				$filetype = '*.*';
+				$files = glob($folder.$filetype);
+				$count = count($files);
+				echo '<table>';
+				for ($i = 0; $i < $count; $i++) {
+					echo '<tr><td>';
+					echo '<a name="'.$i.'" href="#'.$i.'"><img src="'.$files[$i].'" /></a>';
+					echo substr($files[$i],strlen($folder),strpos($files[$i], '.')-strlen($folder));
+					echo '</td></tr>';
+				}
+				echo '</table>';
+	   		}
+	   		error: function(){
+	   			alert('error');
+	   		} 
+		});
+	}
+	</script>
+    {% for folder in folders %}
+        <li><a href="javascript:imageAdd('{{folder}}');">{{folder}}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "base.html" %}
+{% block body %}
+	<h2>Pictures</h2>
+    <ul>
+    {% for folder in folders %}
+        <li><a href="{{url_for('pictures', folders = folder)}}">{{folder}}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    			{% for picture in pictures %}
+					<img id = "{{picture}}"></img>	
+					<script type="text/javascript">
+							var img = '{{pictures}}' + '{{picture}}';
+							alert(img);
+					</script>		
+    			{% endfor %}
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    			
+    								$dirname = $_GET['folder'];
+					$images = glob($dirname."*.jpg");
+					foreach($images as $image) {
+						echo '<img src="'.$image.'" /><br />';
+					}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+						{% for image in images %}  
+    <img src='/static/pictures/{{folder}}/{{image}}'/>  
+	{% endfor %}  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	            $('video').attr('src', '/static/videos/'+ '{{folder}}' +video);
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            {% extends "base.html" %}
+{% block body %}
+	<h2>{{folder}}</h2>
+    <video controls width="420" height="345"></video>
+    <ul>
+    {% for video in videos %}
+        <li><a onclick="changeVideo('/static/videos/{{folder}}/{{video}}')" href="javascript:void(0);">{{video}}</a></li>
+    {% endfor %}
+    </ul>
+    <script type="text/javascript">
+        function changeVideo(video){
+        	alert(video);
+		    $('video').attr('src', video);
+        }
+    </script>
+{% endblock %}
+
+
+document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+function myHandler() {

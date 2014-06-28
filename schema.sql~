@@ -11,5 +11,6 @@ create table members (
   id integer primary key autoinremenet,
   picture string not null,
   name string not null,
-  bio string not null
+  bio string not null,
+  directory string not null
 );

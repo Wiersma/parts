@@ -16,7 +16,9 @@
   <h1>{{directory}}</h1>
   <ul>
   {% for entry in entries %}
-    <li><img src='/static/foobar/{{entry.picture}}'/><br />{{ entry.name|safe }}<br />{{ entry.bio|safe }}
+      {% if entry.directory == directory %}
+  	<li><img src='/static/foobar/{{entry.picture}}'/><br />{{ entry.name|safe }}<br />{{ entry.bio|safe }}
+      {% endif %}
   {% else %}
     <li><em>Unbelievable.  No entries here so far</em>
   {% endfor %}

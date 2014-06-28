@@ -14,7 +14,6 @@ app.config.from_object(__name__)
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 DATABASE = 'sqlite:////home/tanner/projects/flask/parts/members.db'
-directory = 'members'
 
 engine = create_engine(DATABASE, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
@@ -28,11 +27,13 @@ class Entry(Base):
     picture = Column(String())
     name = Column(String())
     bio = Column(String())
+    directory = Column(String())
 
-    def __init__(self, picture='doe.jpg', name='John Doe', bio = ''):
+    def __init__(self, picture='doe.jpg', name='John Doe', bio = '', directory = ''):
         self.picture = picture
         self.name = name
         self.bio = bio
+        self.directory = directory
 
 def init_db_members():
     Base.metadata.create_all(bind=engine)
@@ -43,12 +44,13 @@ def teardown_request(exception):
     
 class Members(flask.views.MethodView):
     def get(self):
-    	directory = 'members'
-    	return flask.render_template('members.html', entries=Entry.query.order_by(desc(Entry.id)).all(),directory=directory)
+    	path = request.args.get('directory')
+    	return flask.render_template('members.html', entries=Entry.query.order_by(desc(Entry.id)).all(), directory=path)
 
     @utils.login_required
     def post(self):
-		e = Entry(request.form['photo'], request.form['name'], request.form['bio'])
+    		path = request.args.get('directory')
+		e = Entry(request.form['photo'], request.form['name'], request.form['bio'], request.args.get('directory'))
 		db_session.add(e)
 		db_session.commit()
-		return flask.render_template('members.html', entries=Entry.query.order_by(desc(Entry.id)).all(),directory=directory)  
+		return flask.render_template('members.html', entries=Entry.query.order_by(desc(Entry.id)).all(), directory=path)  

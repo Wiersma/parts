@@ -20,7 +20,7 @@ app.secret_key = settings.secret_key
 
 # Routes
 app.add_url_rule('/',
-                 view_func=Main.as_view('main'),
+                 view_func=Home.as_view('home'),
                  methods=["GET", "POST"])
 app.add_url_rule('/<page>/',
                  view_func=Main.as_view('page'),
@@ -54,10 +54,7 @@ app.add_url_rule('/donate/',
                  methods=["GET"])
 app.add_url_rule('/members/',
                  view_func=Members.as_view('members'),
-                 methods=["GET", "POST"])  
-app.add_url_rule('/home/',
-                 view_func=Home.as_view('home'),
-                 methods=["GET", "POST"])                                   
+                 methods=["GET", "POST"])                                    
                                  
 @app.errorhandler(404)
 def page_not_found(error):

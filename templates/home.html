@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Home</h1>
+<image id = 'slider'></image><br />
+<script>
+	var slider = document.getElementById("slider");
+	var iterator = 0;
+	var sliderImage = new Array();
+	var step=0;
+	var ID;
+</script>
+<ul>
+{% for image in images%}
+	<script>
+	       	sliderImage[iterator]='/static/slider/{{image}}';
+	       	iterator++
+       	</script>
+       	<li><input onclick="changeImage(this.id)" value="{{image}}" type="button" id="{{image}}"></input></li>
+       	<script>
+       		ID = document.getElementById("{{image}}");
+       		ID.value = iterator;
+       		ID.id = iterator-1;
+       	</script>
+{% endfor %}
+</ul>
+<script>
+function changeImage(imageID){
+	slider.src = sliderImage[imageID];
+	step=imageID;		
+}
+</script>
+<script>
+slider.src = sliderImage[1];
+function slideit(){
+	if (step < iterator-1){
+		step++;
+	}else{
+		step=0;
+	}
+	slider.src = sliderImage[step];	
+	setTimeout("slideit()",3500)
+}
+slideit()
+</script>  
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
-	<h2>{{folder}}</h2>
+	<h1>{{folder}}</h1>
     <video controls width="720" id ="video1"></video><br>
     <script>
     	var videoSource = new Array();

@@ -4,7 +4,7 @@ import utils
 
 class Pictures(flask.views.MethodView):
 	def get(self):
-		folders = os.listdir('parts/static/pictures/')
+		folders = os.listdir('static/pictures/')
 		return flask.render_template("pictures.html", folders = folders)
 		
 		

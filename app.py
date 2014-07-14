@@ -14,6 +14,7 @@ from contact import Contact
 from donate import Sponsors
 from members import Members, init_db_members
 from home import Home
+from events import Event, init_db_events
 
 app = flask.Flask(__name__)
 app.secret_key = settings.secret_key
@@ -55,7 +56,10 @@ app.add_url_rule('/donate/',
 app.add_url_rule('/members/',
                  view_func=Members.as_view('members'),
                  methods=["GET", "POST"])                                    
-                                 
+app.add_url_rule('/events/',
+                 view_func=Event.as_view('events'),
+                 methods=["GET", "POST"])                  
+                                                  
 @app.errorhandler(404)
 def page_not_found(error):
     return flask.render_template('404.html'), 404
@@ -64,4 +68,5 @@ app.debug = True
 if __name__ == "__main__":
 	init_db()
 	init_db_members()
+	init_db_events()
 	app.run()

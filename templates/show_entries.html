@@ -14,7 +14,7 @@
   <h1>Team Updates</h1>
   <ul class=entries>
   {% for entry in entries %}
-    <li><p><b>{{ entry.title }}</b></p>{{ entry.time|safe }}<br />{{ entry.text|safe }}
+    <li><p><b>{{ entry.title|safe }}</b></p>{{ entry.time|safe }}<br />{{ entry.text|safe }}
   {% else %}
     <li><em>Unbelievable.  No entries here so far</em>
   {% endfor %}

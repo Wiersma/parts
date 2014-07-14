@@ -1,0 +1,9 @@
+import flask, flask.views
+import os
+import utils
+
+class Calendar(flask.views.MethodView):
+	def get(self):
+		return flask.render_template("calendar.html")
+	def post(self):
+		pass

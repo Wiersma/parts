@@ -311,3 +311,22 @@
 
 document.getElementById('myVideo').addEventListener('ended',myHandler,false);
 function myHandler() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+, time_to_event.days
+		time_keeper = date(2011, 11, 11)		
+		time_event = date(int(request.form['year']), int(request.form['month']), int(request.form['day']))
+		time_to_event = abs(time_event - time_keeper)
+		request.form['link'], months[int(request.form['month']) + 1] + ' ' + request.form['day'] + ', ' + request.form['year']

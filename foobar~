@@ -330,3 +330,32 @@ function myHandler() {
 		time_event = date(int(request.form['year']), int(request.form['month']), int(request.form['day']))
 		time_to_event = abs(time_event - time_keeper)
 		request.form['link'], months[int(request.form['month']) + 1] + ' ' + request.form['day'] + ', ' + request.form['year']
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+  <ul>
+  {% for entry in entries %}
+  	{% if entry.till >= today %}
+  	<li>
+  	<p><b>{{ entry.name|safe }}</b></p>{% if entry.location != 'here' %}At {{ entry.location|safe }}{%endif%}
+  	<br />{{ entry.description|safe }}<br/><a href="{{ entry.link }}">More Information</a>
+  	<br />On {{ entry.edate|safe }}<br />At {{ entry.time|safe }}
+  	{% endif %}
+  	</li>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>

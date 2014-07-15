@@ -330,3 +330,72 @@ function myHandler() {
 		time_event = date(int(request.form['year']), int(request.form['month']), int(request.form['day']))
 		time_to_event = abs(time_event - time_keeper)
 		request.form['link'], months[int(request.form['month']) + 1] + ' ' + request.form['day'] + ', ' + request.form['year']
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+    <form method=post>
+      <dl>
+        <dt>Name of Event:
+        <dd><input type=text size=30 name=name>
+        <dt>Location (optional):
+        <dd><input type=text size=30 name=location>
+        <dt>Description:
+        <dd><textarea name=description rows=5 cols=40></textarea>
+        <dt>Link to More Info (optional):
+        <dd><input type=url size=30 name=link>
+        <dt>Year of Event:
+        <dd><select name = year>
+    	<option value='2014' selected="selected" >2014</option>
+    	<option value='2015'>2015</option>
+    	<option value='2016'>2016</option>
+	</select>
+        <dt>Month:
+        <dd><select name = month>
+    	<option value='1' disabled="disabled" selected="selected" >Please select a month</option>
+    	<option value='1'>Jan</option>
+    	<option value='2'>Feb</option>
+    	<option value='3'>Mar</option>
+    	<option value='4'>Apr</option>
+    	<option value='5'>May</option>
+    	<option value='6'>Jun</option>
+    	<option value='7'>Jul</option>
+    	<option value='8'>Aug</option>
+    	<option value='9'>Sep</option>
+    	<option value='10'>Oct</option>
+    	<option value='11'>Nov</option>
+    	<option value='12'>Dec</option>
+	</select>
+	<dt>Day:
+        <dd><input type=number name = day>
+	<dt>Time (optional):
+        <dd><input type=text name = time>        
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>		
+  <ul>
+  {% for entry in entries %}
+  	{% if entry.till >= today %}
+  	<li>
+  	<p><b>{{ entry.name|safe }}</b></p>{% if entry.location != 'here' %}At {{ entry.location|safe }}{%endif%}
+  	<br />{{ entry.description|safe }}<br/><a href="{{ entry.link }}">More Information</a>
+  	<br />On {{ entry.edate|safe }}<br />At {{ entry.time|safe }}
+  	{% endif %}
+  	</li>
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>

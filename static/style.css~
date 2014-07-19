@@ -3,24 +3,8 @@ body{
     	color:#3E4349;
 }
 
-#Banner {
-	position: relative;
-	right: 20px;
-	bottom: 8px;
-}
-
-#navcontainer ul li {
-	display: inline;
-	margin-right: 50px;
-	font-family: helvetica;
-	margin: 20px;
-	position: relative;
-	bottom: 55px;
-}
-
-#navcontainer ul li a {
-	text-decoration: none;
-	color: White;
+#banner {
+	width:100%;
 }
 
 #navbg {

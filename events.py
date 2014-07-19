@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
-DATABASE = 'sqlite:////home/tanner/projects/flask/parts/events.db'
+DATABASE = 'sqlite:////home/jesse/parts-1/events.db'
 
 engine = create_engine(DATABASE, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
